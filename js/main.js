@@ -2,6 +2,10 @@
 document.getElementById('myForm').addEventListener('submit', saveBookmark);
 
 // Save Bookmark
-function saveBookmark() {
-    console.log('save ')
+function saveBookmark(e) {
+    // Get form values
+    let siteName = document.getElementById('siteName').value;
+    let siteUrl = document.getElementById('siteUrl').value;
+
+    e.preventDefault();
 }

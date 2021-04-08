@@ -37,6 +37,11 @@ function saveBookmark(e) {
     e.preventDefault();
 }
 
+// Delete bookmark
+function deleteBookmark(url) {
+    console.log(url)
+}
+
 // Fecth bookmarks
 function fetchBookmarks() {
     // Get bookmarks from local storage
@@ -46,5 +51,16 @@ function fetchBookmarks() {
     let bookmarksResults = document.getElementById('bookmarksResults')
 
     // Build output
-    bookmarksResults.innerHTML = 'HELLO'
+    bookmarksResults.innerHTML = '';
+    for(let i = 0; i < bookmarks.length; i++) {
+        let name = bookmarks[i].name;
+        let url = bookmarks[i]. url;
+
+        bookmarksResults.innerHTML += '<div class="well">'+
+                                    '<h3 class="name">'+name+
+                                    ' <a class="btn btn-secondary" style="margin-left: 30px" target="_blank" href="'+url+'">Visit</a> '+
+                                    ' <a onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" style="margin-left: 10px" href="#">Delete</a> '+
+                                    '</h3>'+
+                                    '</div>';
+    }   
 }

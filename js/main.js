@@ -7,13 +7,7 @@ function saveBookmark(e) {
     let siteName = document.getElementById('siteName').value;
     let siteUrl = document.getElementById('siteUrl').value;
 
-    if(!siteName || !siteUrl) {
-        alert('Please fill in the form')
-        return false;
-    }
-
-    let expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-    let regex = new RegExp(expression);
+    
 
     let bookmark = {
         name: siteName,
@@ -84,4 +78,19 @@ function fetchBookmarks() {
                                     '</h3>'+
                                     '</div>';
     }   
+}
+
+function validateForm() {
+    if(!siteName || !siteUrl) {
+        alert('Please fill in the form')
+        return false;
+    }
+
+    let expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+    let regex = new RegExp(expression);
+
+    if(!siteUrl.match(regex)) {
+        alert('Please use a valid url')
+    };
+    return true;
 }

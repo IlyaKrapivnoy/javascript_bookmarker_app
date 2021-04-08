@@ -7,6 +7,11 @@ function saveBookmark(e) {
     let siteName = document.getElementById('siteName').value;
     let siteUrl = document.getElementById('siteUrl').value;
 
+    if(!siteName || !siteUrl) {
+        alert('Please fill in the form')
+        return false;
+    }
+
     let bookmark = {
         name: siteName,
         url: siteUrl
@@ -38,20 +43,22 @@ function saveBookmark(e) {
 }
 
 // Delete bookmark
-function deleteBookmark(url) {
-    // Get bookmark from localStorage
-    let bookmarks = JSON.parse(localStorage.getItem('bookmarks'))
-
-    // Loop throught bookmarks
-    for(let i = 0; i < bookmarks.length; i++) {
-        if(bookmarks[i].url == url) {
-            // Remove from array
-            bookmarks.splice(i, 1)
-        }
+function deleteBookmark(url){
+    // Get bookmarks from localStorage
+    var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    // Loop through the bookmarks
+    for(var i =0;i < bookmarks.length;i++){
+      if(bookmarks[i].url == url){
+        // Remove from array
+        bookmarks.splice(i, 1);
+      }
     }
-    // Re-set back to Local Storage
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks))
-}
+    // Re-set back to localStorage
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  
+    // Re-fetch bookmarks
+    fetchBookmarks();
+  }
 
 // Fecth bookmarks
 function fetchBookmarks() {

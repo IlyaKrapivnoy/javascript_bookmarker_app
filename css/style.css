@@ -38,6 +38,7 @@ body {
   .well {
     background-color: #eee;
     padding: 20px 40px;
+    margin: 10px 0;
     border: 1px solid #999;
     border-radius: 3px;
   }

@@ -11,6 +11,7 @@ function saveBookmark(e) {
         name: siteName,
         url: siteUrl
     }
+    console.log(bookmark)
     // Local Storage Test
     // localStorage.setItem('test', 'Hello World')
     // console.log(localStorage.getItem('test'))
@@ -23,6 +24,13 @@ function saveBookmark(e) {
         // Add to array
         bookmarks.push(bookmark);
         // Set to LocalStorage
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks))
+    } else {
+        // Get bookmarks from local storage
+        let bookmarks = JSON.parse(localStorage.getItem('bookmarks'))
+        // Add bookmark to array
+        bookmarks.push(bookmark)
+        // Re-set back to Local Storage
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks))
     }
     

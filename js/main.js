@@ -36,3 +36,15 @@ function saveBookmark(e) {
     
     e.preventDefault();
 }
+
+// Fecth bookmarks
+function fetchBookmarks() {
+    // Get bookmarks from local storage
+    let bookmarks = JSON.parse(localStorage.getItem('bookmarks'))
+
+    // Get output id
+    let bookmarksResults = document.getElementById('bookmarksResults')
+
+    // Build output
+    bookmarksResults.innerHTML = 'HELLO'
+}

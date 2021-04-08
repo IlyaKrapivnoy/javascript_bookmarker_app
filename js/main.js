@@ -16,6 +16,15 @@ function saveBookmark(e) {
     // console.log(localStorage.getItem('test'))
     // localStorage.removeItem('test')
     // console.log(localStorage.getItem('test'))
+
+    if(localStorage.getItem('bookmarks') === null) {
+        // Init array
+        let bookmarks = [];
+        // Add to array
+        bookmarks.push(bookmark);
+        // Set to LocalStorage
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks))
+    }
     
     e.preventDefault();
 }
